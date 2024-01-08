@@ -1,13 +1,13 @@
-!pip install transformers
-from transformers import pipeline,AutoModelForSequenceClassification,AutoTokenizer
-model_name="nlptown/bert-base-multilingual-uncased-sentiment"
-model=AutoModelForSequenceClassification.from_pretrained(model_name)
-tokenizer=AutoTokenizer.from_pretrained(model_name)
-pipe=pipeline('sentiment-analysis')
-text="Chari ist ein gutes Mädchen"
-out=pipe(text)
-result=out[0] #Assuming you want the first result if multiple are returned
-sentiment=result["label"]
-score=round(result["score"],2)
-print(f"Sentiment: {sentiment}")
-print(score)
+import streamlit as st
+st.set_page_config(page_title='Cats')
+st.header("Types of Cats")
+
+col1, col2 = st.columns(2)
+with col1:
+  st.subheader("Persian Cat")
+  st.image("./Persian.jpg", caption="Persian Cat", width=300,use_column_width=True)
+  st.write("Persian cats are cute")
+with col2:
+  st.subheader("Ragdoll Cat")
+  st.image("./ragdoll.jpg", caption="Ragdoll Cat", width=300,use_column_width=True)
+  st.write("Ragdoll cats are proud")
